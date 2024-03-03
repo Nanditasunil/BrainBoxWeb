@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Main from "./comonents/Main";
-import {Quiz} from "./comonents/Quiz";
-import {Result} from "./comonents/Result";
+import Main from "./components/Main";
+import {Quiz} from "./components/Quiz";
+import {Result} from "./components/Result";
 
 const router = createBrowserRouter([
   {

@@ -14,7 +14,12 @@ export default function Main() {
         <li>The result will be declared at the end of the quiz </li>
       </ol>
       <form id="form">
-        <input className="userid" ref={inputRef} type="text" placeholder="Username*" />
+        <input
+          className="userid"
+          ref={inputRef}
+          type="text"
+          placeholder="Username*"
+        />
       </form>
 
       <div className="start">
