@@ -12,11 +12,13 @@ export const ResultTable = () => {
             <td>Result</td>
           </tr>
         </thead>
-        <tbody className="table-body">
-          <td>Daily Tuition</td>
-          <td>03</td>
-          <td>20</td>
-          <td>Passed</td>
+        <tbody>
+          <tr className="table-body">
+            <td>Daily Tuition</td>
+            <td>03</td>
+            <td>20</td>
+            <td>Passed</td>
+          </tr>
         </tbody>
       </table>
     </div>
