@@ -5,9 +5,10 @@ import { moveNextQuestion, movePrevQuestion } from "../hooks/FetchQuestion";
 import { useSelector, useDispatch } from "react-redux";
 import { PushAnswer } from "../hooks/setResult";
 
+import { Navigate } from "react-router-dom";
 export const Quiz = () => {
   const [check, setChecked] = useState(undefined);
-  const state = useSelector((state) => state);
+  const result = useSelector((state) => state.result.result);
   const { queue, trace } = useSelector((state) => state.questions);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +20,11 @@ export const Quiz = () => {
     if (trace < queue.length) {
       dispatch(moveNextQuestion());
 
-      dispatch(PushAnswer(check));
+      //
+
+      if (result.length <= trace) {
+        dispatch(PushAnswer(check));
+      }
     }
   }
 
@@ -32,7 +37,11 @@ export const Quiz = () => {
 
   function onChecked(check) {
     console.log(check);
-    setChecked(check)
+    setChecked(check);
+  }
+
+  if (result.length && result.length >= queue.length) {
+    return <Navigate to={"/result"} replace={true}></Navigate>;
   }
   return (
     <div className="container">
@@ -41,9 +50,13 @@ export const Quiz = () => {
       <Questions onChecked={onChecked} />
 
       <div className="grid">
-        <button className="btn prev" onClick={onPrev}>
-          Prev
-        </button>
+        {trace > 0 ? (
+          <button className="btn prev" onClick={onPrev}>
+            Prev
+          </button>
+        ) : (
+          <div></div>
+        )}
         <button className="btn next" onClick={onNext}>
           Next
         </button>

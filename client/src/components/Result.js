@@ -2,9 +2,15 @@ import React from "react";
 import "./Result.css";
 import { Link } from "react-router-dom";
 import { ResultTable } from "./ResultTable";
+import { useDispatch } from "react-redux";
+import { resetAllAction } from "../redux/question_reducer";
+import { resetResultAction } from "../redux/result_reducer";
+
 export const Result = () => {
+  const dispatch = useDispatch();
   function onRestart() {
-    console.log("on restet ");
+    dispatch(resetAllAction());
+    dispatch(resetResultAction());
   }
   return (
     <div className="container">
@@ -40,7 +46,9 @@ export const Result = () => {
           Restart
         </Link>
       </div>
-    <div className="container"><ResultTable></ResultTable></div>
+      <div className="container">
+        <ResultTable></ResultTable>
+      </div>
     </div>
   );
 };

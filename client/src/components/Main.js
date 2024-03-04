@@ -26,7 +26,7 @@ export default function Main() {
         <Link className="btn" to={"quiz"}>
           Start Quiz
         </Link>
-        <h1>Krishaa Joshiii</h1>
+        
       </div>
     </div>
   );
