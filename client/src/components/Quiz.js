@@ -28,6 +28,8 @@ export const Quiz = () => {
     }
   }
 
+  setChecked(undefined);
+
   function onPrev() {
     console.log("prev");
     if (trace > 0) {

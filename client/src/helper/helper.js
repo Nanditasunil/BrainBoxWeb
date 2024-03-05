@@ -1,0 +1,13 @@
+import { answers } from "../database/data";
+
+export function attemptsNumber(result) {
+  return result.filter((r) => r !== undefined).length;
+}
+
+export function earnPoints_Number(result, answers) {
+  return result
+    .map((element, i) => answers[i] === element)
+    .filter((i) => i)
+    .map((i) => 10)
+    .reduce((prev, curr) => prev + curr, 0);
+}
